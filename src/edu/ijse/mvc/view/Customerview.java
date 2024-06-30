@@ -3,17 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package edu.ijse.mvc.view;
+import edu.ijse.mvc.controller.CustomerController;
+import edu.ijse.mvc.dto.CustomerDto;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Milan
  */
 public class Customerview extends javax.swing.JFrame {
+    
+    private CustomerController customerController;
 
     /**
      * Creates new form Customerview
      */
-    public Customerview() {
+    public Customerview(){
+        this.customerController=new CustomerController();
         initComponents();
     }
 
@@ -26,57 +33,258 @@ public class Customerview extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        titlelable = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        idlable = new javax.swing.JLabel();
+        txtid = new javax.swing.JTextField();
+        custtitlelable = new javax.swing.JLabel();
+        custnamelable = new javax.swing.JLabel();
+        doblable = new javax.swing.JLabel();
+        salarylable = new javax.swing.JLabel();
+        addresslable = new javax.swing.JLabel();
+        citylable = new javax.swing.JLabel();
+        provincelable = new javax.swing.JLabel();
+        postcodelable = new javax.swing.JLabel();
+        txttitle = new javax.swing.JTextField();
+        txtname = new javax.swing.JTextField();
+        txtdob = new javax.swing.JTextField();
+        txtsalary = new javax.swing.JTextField();
+        txtaddress = new javax.swing.JTextField();
+        txtcity = new javax.swing.JTextField();
+        txtprovice = new javax.swing.JTextField();
+        txtpostcode = new javax.swing.JTextField();
+        btnsave = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        titlelable.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        titlelable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titlelable.setText("Customer Manage");
+
+        idlable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        idlable.setText("Cust ID :");
+
+        txtid.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        custtitlelable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        custtitlelable.setText("CustTitle :");
+
+        custnamelable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        custnamelable.setText("CustName :");
+
+        doblable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        doblable.setText("DOB :");
+
+        salarylable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        salarylable.setText("Salary :");
+
+        addresslable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addresslable.setText("CustAddress :");
+
+        citylable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        citylable.setText("City :");
+
+        provincelable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        provincelable.setText("Province :");
+
+        postcodelable.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        postcodelable.setText("PostalCode :");
+
+        txttitle.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        txtname.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        txtdob.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        txtsalary.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        txtaddress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        txtcity.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        txtprovice.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        txtpostcode.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        btnsave.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnsave.setText("Save");
+        btnsave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsaveActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(titlelable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(idlable)
+                            .addComponent(custtitlelable)
+                            .addComponent(custnamelable)
+                            .addComponent(doblable)
+                            .addComponent(salarylable)
+                            .addComponent(addresslable)
+                            .addComponent(citylable)
+                            .addComponent(provincelable)
+                            .addComponent(postcodelable))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnsave)
+                                .addGap(0, 588, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtprovice, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                    .addComponent(txtcity, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtaddress, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtsalary, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtdob, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtname, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txttitle, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtid, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtpostcode))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSeparator1))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(titlelable, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(idlable)
+                        .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(custtitlelable)
+                    .addComponent(txttitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(custnamelable)
+                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(doblable)
+                    .addComponent(txtdob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(salarylable)
+                    .addComponent(txtsalary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addresslable)
+                    .addComponent(txtaddress, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(citylable)
+                    .addComponent(txtcity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(provincelable)
+                    .addComponent(txtprovice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(postcodelable)
+                    .addComponent(txtpostcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(btnsave)
+                .addContainerGap(118, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
+          SaveCustomer();
+    }//GEN-LAST:event_btnsaveActionPerformed
+    private void SaveCustomer(){
+        CustomerDto dto=new CustomerDto();
+        dto.setCustID(txtid.getText());
+        dto.setCustTitle(txttitle.getText());
+        dto.setCustName(txtname.getText());
+        dto.setDOB(txtdob.getText());
+        dto.setSalary(Double.parseDouble(txtsalary.getText()));
+        dto.setCustAddress(txtaddress.getText());
+        dto.setCity(txtcity.getText());
+        dto.setProvince(txtprovice.getText());
+        dto.setPostalCode(txtpostcode.getText());
+        
+        try{
+            String result=customerController.SaveCustomer(dto);
+            System.out.println(result);}
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+            }
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Customerview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Customerview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Customerview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Customerview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Customerview().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(Customerview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(Customerview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(Customerview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Customerview.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new Customerview().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel addresslable;
+    private javax.swing.JButton btnsave;
+    private javax.swing.JLabel citylable;
+    private javax.swing.JLabel custnamelable;
+    private javax.swing.JLabel custtitlelable;
+    private javax.swing.JLabel doblable;
+    private javax.swing.JLabel idlable;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel postcodelable;
+    private javax.swing.JLabel provincelable;
+    private javax.swing.JLabel salarylable;
+    private javax.swing.JLabel titlelable;
+    private javax.swing.JTextField txtaddress;
+    private javax.swing.JTextField txtcity;
+    private javax.swing.JTextField txtdob;
+    private javax.swing.JTextField txtid;
+    private javax.swing.JTextField txtname;
+    private javax.swing.JTextField txtpostcode;
+    private javax.swing.JTextField txtprovice;
+    private javax.swing.JTextField txtsalary;
+    private javax.swing.JTextField txttitle;
     // End of variables declaration//GEN-END:variables
 }

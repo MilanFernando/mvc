@@ -147,6 +147,8 @@ public class CustomerDto {
 
     @Override
     public String toString() {
-        return "CustomerDto{" + "CustID=" + CustID + ", CustTitle=" + CustTitle + ", CustName=" + CustName + ", DOB=" + DOB + ", salary=" + salary + ", CustAddress=" + CustAddress + ", City=" + City + ", Province=" + Province + '}';
+        return "CustomerDto{" + "CustID=" + CustID + ", CustTitle=" + CustTitle + ", CustName=" + CustName + ", DOB=" + DOB + ", salary=" + salary + ", CustAddress=" + CustAddress + ", City=" + City + ", Province=" + Province + ", PostalCode=" + PostalCode + '}';
     }
+
+    
 }
