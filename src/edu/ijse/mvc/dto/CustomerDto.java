@@ -144,7 +144,9 @@ public class CustomerDto {
     public void setPostalCode(String PostalCode) {
         this.PostalCode = PostalCode;
     }
-    
 
-    
+    @Override
+    public String toString() {
+        return "CustomerDto{" + "CustID=" + CustID + ", CustTitle=" + CustTitle + ", CustName=" + CustName + ", DOB=" + DOB + ", salary=" + salary + ", CustAddress=" + CustAddress + ", City=" + City + ", Province=" + Province + '}';
+    }
 }
