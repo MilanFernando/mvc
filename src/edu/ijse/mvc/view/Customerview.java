@@ -49,7 +49,9 @@ public class Customerview extends javax.swing.JFrame {
         }
             catch(Exception ex){
         Logger.getLogger(Customerview.class.getName()).log(Level.SEVERE,null,ex);
-        }
+         JOptionPane.showMessageDialog(this,ex.getMessage());}
+
+        
     }
 
     /**
@@ -292,10 +294,10 @@ public class Customerview extends javax.swing.JFrame {
         txtid.setText("");
         txttitle.setText("");
         txtname.setText("");
-        txtid.setText("");
-        txtid.setText("");
-        txtid.setText("");
+        txtdob.setText("");
         txtcity.setText("");
+        txtsalary.setText("");
+        txtaddress.setText("");
         txtprovice.setText("");
         txtpostcode.setText("");
     
