@@ -9,6 +9,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -276,11 +278,27 @@ public class Customerview extends javax.swing.JFrame {
         
         try{
             String result=customerController.SaveCustomer(dto);
-            System.out.println(result);}
+            System.out.println(result);
+            JOptionPane.showMessageDialog(this,result);
+            loadcustomer();
+            clear();
+        }
         catch(Exception ex){
             System.out.println(ex.getMessage());
-            }
+            JOptionPane.showMessageDialog(this,ex.getMessage());}
         
+    }
+    private void clear(){
+        txtid.setText("");
+        txttitle.setText("");
+        txtname.setText("");
+        txtid.setText("");
+        txtid.setText("");
+        txtid.setText("");
+        txtcity.setText("");
+        txtprovice.setText("");
+        txtpostcode.setText("");
+    
     }
     
     /**
