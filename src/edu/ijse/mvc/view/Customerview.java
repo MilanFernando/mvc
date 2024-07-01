@@ -172,6 +172,11 @@ public class Customerview extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tablecustomer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablecustomerMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tablecustomer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -266,6 +271,10 @@ public class Customerview extends javax.swing.JFrame {
     private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
           SaveCustomer();
     }//GEN-LAST:event_btnsaveActionPerformed
+
+    private void tablecustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablecustomerMouseClicked
+        searchCustomer();
+    }//GEN-LAST:event_tablecustomerMouseClicked
     private void SaveCustomer(){
         CustomerDto dto=new CustomerDto();
         dto.setCustID(txtid.getText());
@@ -301,6 +310,27 @@ public class Customerview extends javax.swing.JFrame {
         txtprovice.setText("");
         txtpostcode.setText("");
     
+    }
+    private void searchCustomer(){
+     String id=tablecustomer.getValueAt(tablecustomer.getSelectedRow(),0).toString();
+        try {
+            CustomerDto dto=customerController.searchCustomer(id);
+            if(dto!=null){
+            txtid.setText(dto.getCustID());
+            txttitle.setText(dto.getCustTitle());
+            txtname.setText(dto.getCustName());
+            txtdob.setText(dto.getDOB());
+            txtcity.setText(dto.getCity());
+            txtsalary.setText((dto.getSalary()).toString());
+            txtaddress.setText(dto.getCustAddress());
+            txtprovice.setText(dto.getProvince());
+            txtpostcode.setText(dto.getPostalCode()); 
+                }else{
+            JOptionPane.showMessageDialog(this,"Customer not found");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Customerview.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /**

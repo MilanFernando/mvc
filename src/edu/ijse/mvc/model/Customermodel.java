@@ -60,4 +60,28 @@ public class Customermodel {
         customerDtos.add(dto);}
         return customerDtos;
     }
+    public CustomerDto searchCustomer(String id)throws Exception{
+        Connection connection= DBconnection.getinstance().getConnection();
+        
+        String sql="select*from customer where CustID=?";
+        PreparedStatement statment=connection.prepareStatement(sql);
+        statment.setString(1,id);
+        
+        ResultSet rst=statment.executeQuery();
+        
+        CustomerDto dto=null;
+        while( rst.next()){
+            
+        dto=new CustomerDto();
+        dto.setCustID(rst.getString("CustID"));
+        dto.setCustTitle (rst.getString("CustTitle"));
+        dto.setCustName(rst.getString("CustName"));
+        dto.setDOB(rst.getString("DOB"));
+        dto.setSalary(rst.getDouble("Salary"));
+        dto.setCustAddress(rst.getString("CustAddress"));
+        dto.setCity(rst.getString("City"));
+        dto.setProvince(rst.getString("Province"));
+        dto.setPostalCode(rst.getString("PostalCode"));
+        }
+    return dto;}
 }

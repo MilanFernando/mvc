@@ -25,9 +25,16 @@ public CustomerController(){
     public ArrayList<CustomerDto> getAllCustomer()throws Exception{
         return customerModel.getAllCustomer();
      }
+    public CustomerDto searchCustomer(String id)throws Exception{
+        return customerModel.searchCustomer(id);
+    }
 
 //    public ArrayList<CustomerDto> getAllCustomer() {
 //        throw new UnsupportedOperationExceptiothrows Exceptionn("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
 //    }
+
+//    public CustomerDto searchCustomer(String id) throws Exception{
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
-}
+
