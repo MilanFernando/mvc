@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="jTable1">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="4" rowCount="4">
+                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+              </Table>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -26,47 +49,37 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="titlelable" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="idlable" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="custtitlelable" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="custnamelable" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="doblable" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="salarylable" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="addresslable" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="citylable" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="provincelable" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="postcodelable" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="btnsave" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="588" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="txtprovice" pref="110" max="32767" attributes="0"/>
-                                  <Component id="txtcity" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtaddress" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtsalary" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtdob" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtname" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txttitle" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtid" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtpostcode" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jSeparator1" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <Component id="idlable" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="custtitlelable" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="custnamelable" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="doblable" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="salarylable" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="addresslable" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="citylable" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="provincelable" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="postcodelable" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnsave" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="txtprovice" pref="110" max="32767" attributes="0"/>
+                      <Component id="txtcity" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtaddress" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtsalary" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtdob" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtname" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txttitle" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtid" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtpostcode" max="32767" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="648" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jSeparator1" pref="1" max="32767" attributes="0"/>
           </Group>
+          <Component id="titlelable" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -74,57 +87,62 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="titlelable" min="-2" pref="37" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="idlable" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtid" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="idlable" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtid" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="custtitlelable" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txttitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="custnamelable" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtname" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="doblable" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtdob" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="salarylable" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtsalary" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="addresslable" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtaddress" min="-2" pref="26" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="citylable" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtcity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="provincelable" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtprovice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="postcodelable" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtpostcode" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="btnsave" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="jScrollPane2" min="-2" pref="366" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="custtitlelable" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txttitle" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="custnamelable" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtname" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="doblable" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtdob" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="salarylable" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtsalary" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="addresslable" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtaddress" min="-2" pref="26" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="citylable" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtcity" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="provincelable" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtprovice" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="postcodelable" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtpostcode" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="btnsave" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="118" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -287,5 +305,26 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnsaveActionPerformed"/>
       </Events>
     </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="tablecustomer">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="4" rowCount="4">
+                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+              </Table>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

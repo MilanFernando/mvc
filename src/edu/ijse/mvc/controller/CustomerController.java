@@ -22,4 +22,12 @@ public CustomerController(){
     public String SaveCustomer(CustomerDto customerDto) throws Exception{
     return customerModel.saveCustomer(customerDto);
     }
+    public ArrayList<CustomerDto> getAllCustomer()throws Exception{
+        return customerModel.getAllCustomer();
+     }
+
+//    public ArrayList<CustomerDto> getAllCustomer() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+    
 }

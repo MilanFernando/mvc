@@ -7,8 +7,10 @@ package edu.ijse.mvc.model;
 import edu.ijse.mvc.db.DBconnection;
 import edu.ijse.mvc.dto.CustomerDto;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 
 /**
  *
@@ -35,4 +37,27 @@ public class Customermodel {
       }else{
       return "Fail";}
        }
+    public ArrayList<CustomerDto> getAllCustomer() throws Exception{
+        Connection connection= DBconnection.getinstance().getConnection();
+        String sql="select*from customer";
+        PreparedStatement statment=connection.prepareStatement(sql);
+        ResultSet rst=statment.executeQuery();
+        
+        ArrayList<CustomerDto> customerDtos=new ArrayList<>();
+        
+        while(rst.next()){
+        CustomerDto dto=new CustomerDto();
+        dto.setCustID(rst.getString("CustID"));
+        dto.setCustTitle (rst.getString("CustTitle"));
+        dto.setCustName(rst.getString("CustName"));
+        dto.setDOB(rst.getString("DOB"));
+        dto.setSalary(rst.getDouble("Salary"));
+        dto.setCustAddress(rst.getString("CustAddress"));
+        dto.setCity(rst.getString("City"));
+        dto.setProvince(rst.getString("Province"));
+        dto.setPostalCode(rst.getString("PostalCode"));
+        
+        customerDtos.add(dto);}
+        return customerDtos;
+    }
 }
