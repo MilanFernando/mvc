@@ -84,4 +84,28 @@ public class Customermodel {
         dto.setPostalCode(rst.getString("PostalCode"));
         }
     return dto;}
-}
+    public String updateCustomer(CustomerDto customerdto)throws Exception{
+        Connection connection= DBconnection.getinstance().getConnection();
+      String sql="update Customer set CustTitle=?, CustName=?, DOB=?, Salary=?, "
+              + "CustAddress=?, City=?, Province=?, PostalCode=? where CustID=?";
+      
+      PreparedStatement statment=connection.prepareStatement(sql);
+     
+      statment.setString(1,customerdto.getCustTitle());
+      statment.setString(2,customerdto.getCustName());
+      statment.setString(3,customerdto.getDOB());
+      statment.setDouble(4,customerdto.getSalary());
+      statment.setString(5,customerdto.getCustAddress());
+      statment.setString(6,customerdto.getCity());
+      statment.setString(7,customerdto.getProvince());
+      statment.setString(8,customerdto.getPostalCode());
+      statment.setString(9,customerdto.getCustID());
+      
+      if(statment.executeUpdate()>0){
+      return "Success";
+      }else{
+      return "Fail";}
+       }
+    
+    }
+

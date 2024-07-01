@@ -88,6 +88,8 @@ public class Customerview extends javax.swing.JFrame {
         btnsave = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablecustomer = new javax.swing.JTable();
+        btnupdate = new javax.swing.JButton();
+        btndelete = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -179,6 +181,17 @@ public class Customerview extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tablecustomer);
 
+        btnupdate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnupdate.setText("update");
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
+
+        btndelete.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btndelete.setText("Delete");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,28 +199,32 @@ public class Customerview extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(idlable)
-                    .addComponent(custtitlelable)
-                    .addComponent(custnamelable)
-                    .addComponent(doblable)
-                    .addComponent(salarylable)
-                    .addComponent(addresslable)
-                    .addComponent(citylable)
-                    .addComponent(provincelable)
-                    .addComponent(postcodelable))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnsave)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtprovice, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                        .addComponent(txtcity, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtaddress, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtsalary, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtdob, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtname, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txttitle, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtid, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtpostcode)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(idlable)
+                            .addComponent(custtitlelable)
+                            .addComponent(custnamelable)
+                            .addComponent(doblable)
+                            .addComponent(salarylable)
+                            .addComponent(addresslable)
+                            .addComponent(citylable)
+                            .addComponent(provincelable)
+                            .addComponent(postcodelable)
+                            .addComponent(btnupdate))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnsave)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtprovice, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                .addComponent(txtcity, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtaddress, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtsalary, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtdob, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtname, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txttitle, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtid, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtpostcode))))
+                    .addComponent(btndelete))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -220,7 +237,7 @@ public class Customerview extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(titlelable, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -260,7 +277,11 @@ public class Customerview extends javax.swing.JFrame {
                             .addComponent(postcodelable)
                             .addComponent(txtpostcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(27, 27, 27)
-                        .addComponent(btnsave))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnsave)
+                            .addComponent(btnupdate))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btndelete))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -275,6 +296,10 @@ public class Customerview extends javax.swing.JFrame {
     private void tablecustomerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablecustomerMouseClicked
         searchCustomer();
     }//GEN-LAST:event_tablecustomerMouseClicked
+
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+          updateCustomer();
+    }//GEN-LAST:event_btnupdateActionPerformed
     private void SaveCustomer(){
         CustomerDto dto=new CustomerDto();
         dto.setCustID(txtid.getText());
@@ -329,7 +354,29 @@ public class Customerview extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Customer not found");
             }
         } catch (Exception ex) {
-            Logger.getLogger(Customerview.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this,ex);
+        }   
+    }
+    private void updateCustomer(){
+       try {
+        CustomerDto dto=new CustomerDto();
+        dto.setCustID(txtid.getText());
+        dto.setCustTitle(txttitle.getText());
+        dto.setCustName(txtname.getText());
+        dto.setDOB(txtdob.getText());
+        dto.setSalary(Double.valueOf(txtsalary.getText()));
+        dto.setCustAddress(txtaddress.getText());
+        dto.setCity(txtcity.getText());
+        dto.setProvince(txtprovice.getText());
+        dto.setPostalCode(txtpostcode.getText());
+        
+        
+            String responce=customerController.updateCustomer(dto);
+            JOptionPane.showMessageDialog(this,responce);
+            loadcustomer();
+            clear();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,ex);
         }
     }
     
@@ -370,7 +417,9 @@ public class Customerview extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addresslable;
+    private javax.swing.JButton btndelete;
     private javax.swing.JButton btnsave;
+    private javax.swing.JButton btnupdate;
     private javax.swing.JLabel citylable;
     private javax.swing.JLabel custnamelable;
     private javax.swing.JLabel custtitlelable;

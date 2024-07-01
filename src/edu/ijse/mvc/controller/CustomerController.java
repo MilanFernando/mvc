@@ -28,8 +28,12 @@ public CustomerController(){
     public CustomerDto searchCustomer(String id)throws Exception{
         return customerModel.searchCustomer(id);
     }
+    public String updateCustomer(CustomerDto customerDto)throws Exception{
+        return customerModel.updateCustomer(customerDto);
+    }
 
-// Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
+    
     }
     
 
