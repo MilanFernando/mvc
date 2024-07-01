@@ -31,9 +31,9 @@ public CustomerController(){
     public String updateCustomer(CustomerDto customerDto)throws Exception{
         return customerModel.updateCustomer(customerDto);
     }
-
-
-    
+    public String deleteCustomer(String id)throws Exception{
+    return customerModel.deleteCustomer(id);
+    }
     }
     
 

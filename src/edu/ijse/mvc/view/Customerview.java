@@ -7,7 +7,6 @@ import edu.ijse.mvc.controller.CustomerController;
 import edu.ijse.mvc.dto.CustomerDto;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
@@ -191,6 +190,11 @@ public class Customerview extends javax.swing.JFrame {
 
         btndelete.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btndelete.setText("Delete");
+        btndelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -300,6 +304,10 @@ public class Customerview extends javax.swing.JFrame {
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
           updateCustomer();
     }//GEN-LAST:event_btnupdateActionPerformed
+
+    private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
+        deleteCustomer();
+    }//GEN-LAST:event_btndeleteActionPerformed
     private void SaveCustomer(){
         CustomerDto dto=new CustomerDto();
         dto.setCustID(txtid.getText());
@@ -376,6 +384,17 @@ public class Customerview extends javax.swing.JFrame {
             loadcustomer();
             clear();
         } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,ex);
+        }
+    }
+    private void deleteCustomer(){
+       try {
+           String custId=txtid.getText();
+            String response = customerController.deleteCustomer(custId);
+            JOptionPane.showMessageDialog(this,custId);
+            loadcustomer(); 
+            clear();
+        } catch (Exception ex){
             JOptionPane.showMessageDialog(this,ex);
         }
     }
