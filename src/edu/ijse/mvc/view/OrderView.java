@@ -4,7 +4,9 @@
  */
 package edu.ijse.mvc.view;
 import edu.ijse.mvc.controller.ItemController;
+import edu.ijse.mvc.controller.CustomerController;
 import edu.ijse.mvc.dto.ItemDto;
+import edu.ijse.mvc.dto.CustomerDto;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -14,11 +16,13 @@ import javax.swing.JOptionPane;
  */
 public class OrderView extends javax.swing.JFrame {
     private ItemController itemController;
+    private CustomerController customerController; 
     /**
      * Creates new form OrderView
      */
     public OrderView() {
         itemController=new ItemController();
+        customerController=new CustomerController();
         initComponents();}
    /**
      * This method is called from within the constructor to initialize the form.
@@ -39,6 +43,7 @@ public class OrderView extends javax.swing.JFrame {
         btncustid = new javax.swing.JButton();
         btnitemid = new javax.swing.JButton();
         lblitemdata = new javax.swing.JLabel();
+        lblcustdata = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,6 +75,8 @@ public class OrderView extends javax.swing.JFrame {
             }
         });
 
+        lblcustdata.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,7 +97,8 @@ public class OrderView extends javax.swing.JFrame {
                                 .addComponent(txtcustid, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btncustid)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(lblcustdata, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -114,7 +122,8 @@ public class OrderView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblcustid)
                     .addComponent(txtcustid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btncustid))
+                    .addComponent(btncustid)
+                    .addComponent(lblcustdata))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblitemid)
@@ -128,7 +137,7 @@ public class OrderView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btncustidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncustidActionPerformed
-        // TODO add your handling code here:
+       searchCustomer();
     }//GEN-LAST:event_btncustidActionPerformed
 
     private void btnitemidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnitemidActionPerformed
@@ -181,9 +190,22 @@ public class OrderView extends javax.swing.JFrame {
          Logger.getLogger(OrderView.class.getName()).log(Level.SEVERE, null, ex);
      }
     }
+    private void searchCustomer(){
+        try {
+            String custId=txtcustid.getText();
+            CustomerDto customerDto=customerController.searchCustomer(custId);
+            if(customerDto !=null){
+             lblcustdata.setText(customerDto.getCustTitle()+"  "+customerDto.getCustName());
+         }else{
+         JOptionPane.showMessageDialog(this,"customer not found");}
+        } catch (Exception ex) {
+            Logger.getLogger(OrderView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncustid;
     private javax.swing.JButton btnitemid;
+    private javax.swing.JLabel lblcustdata;
     private javax.swing.JLabel lblcustid;
     private javax.swing.JLabel lblitemdata;
     private javax.swing.JLabel lblitemid;
