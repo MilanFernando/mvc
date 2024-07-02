@@ -5,12 +5,14 @@
 package edu.ijse.mvc;
 
 import edu.ijse.mvc.view.Customerview;
+import edu.ijse.mvc.view.OrderView;
+
 /**
  *
  * @author Milan
  */
 public class Main {
     public static void main(String[] arg){
-    new Customerview().setVisible(true);
+    new OrderView().setVisible(true);
         }
 }

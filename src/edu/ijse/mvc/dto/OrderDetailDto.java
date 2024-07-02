@@ -69,5 +69,10 @@ public class OrderDetailDto {
     public void setDiscount(Integer discount) {
         this.discount = discount;
     }
+
+    @Override
+    public String toString() {
+        return "OrderDetailDto{" + "orderId=" + orderId + ", itemId=" + itemId + ", qty=" + qty + ", discount=" + discount + '}';
+    }
     
 }
