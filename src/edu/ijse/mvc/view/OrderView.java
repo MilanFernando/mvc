@@ -5,11 +5,19 @@
 package edu.ijse.mvc.view;
 import edu.ijse.mvc.controller.ItemController;
 import edu.ijse.mvc.controller.CustomerController;
+import edu.ijse.mvc.controller.OrderController;
 import edu.ijse.mvc.dto.ItemDto;
 import edu.ijse.mvc.dto.CustomerDto;
+import edu.ijse.mvc.dto.OrderDetailDto;
+import edu.ijse.mvc.dto.OrderDto;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author Milan
@@ -17,13 +25,20 @@ import javax.swing.JOptionPane;
 public class OrderView extends javax.swing.JFrame {
     private ItemController itemController;
     private CustomerController customerController; 
+    private ArrayList<OrderDetailDto>orderDeatailDtos;
+    private OrderController orderController;
     /**
      * Creates new form OrderView
      */
     public OrderView() {
         itemController=new ItemController();
         customerController=new CustomerController();
-        initComponents();}
+        orderDeatailDtos=new ArrayList<>();
+        orderController=new OrderController();
+        initComponents();
+        loadTable();
+    }
+    
    /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -44,6 +59,14 @@ public class OrderView extends javax.swing.JFrame {
         btnitemid = new javax.swing.JButton();
         lblitemdata = new javax.swing.JLabel();
         lblcustdata = new javax.swing.JLabel();
+        lblqty = new javax.swing.JLabel();
+        txtqty = new javax.swing.JTextField();
+        lbldiscount = new javax.swing.JLabel();
+        txtdiscount = new javax.swing.JTextField();
+        btnadd = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblitem = new javax.swing.JTable();
+        btnplaceorder = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,6 +100,38 @@ public class OrderView extends javax.swing.JFrame {
 
         lblcustdata.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        lblqty.setText("Qty");
+
+        lbldiscount.setText("Discount");
+
+        btnadd.setText("Add");
+        btnadd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddActionPerformed(evt);
+            }
+        });
+
+        tblitem.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblitem);
+
+        btnplaceorder.setText("Place Order");
+        btnplaceorder.setToolTipText("");
+        btnplaceorder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnplaceorderActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,13 +157,33 @@ public class OrderView extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblitemid)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtitemid, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnitemid)
-                .addGap(18, 18, 18)
-                .addComponent(lblitemdata, javax.swing.GroupLayout.DEFAULT_SIZE, 487, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblitemid)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtitemid, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnitemid)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblitemdata, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblqty)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtqty, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(lbldiscount)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtdiscount, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(btnadd)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnplaceorder)
+                .addGap(57, 57, 57))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +205,18 @@ public class OrderView extends javax.swing.JFrame {
                     .addComponent(txtitemid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnitemid)
                     .addComponent(lblitemdata))
-                .addGap(0, 180, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblqty)
+                    .addComponent(txtqty, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbldiscount)
+                    .addComponent(txtdiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnadd))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnplaceorder)
+                .addGap(0, 145, Short.MAX_VALUE))
         );
 
         pack();
@@ -143,6 +229,14 @@ public class OrderView extends javax.swing.JFrame {
     private void btnitemidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnitemidActionPerformed
        searchItem();
     }//GEN-LAST:event_btnitemidActionPerformed
+
+    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
+       addToTable();
+    }//GEN-LAST:event_btnaddActionPerformed
+
+    private void btnplaceorderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnplaceorderActionPerformed
+        placeOrder();
+    }//GEN-LAST:event_btnplaceorderActionPerformed
       /**
      * @param args the command line arguments
      */
@@ -202,17 +296,71 @@ public class OrderView extends javax.swing.JFrame {
             Logger.getLogger(OrderView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    private void loadTable(){
+        String[] columns={"Item Code","Qty","Discount"};
+        DefaultTableModel dtm=new DefaultTableModel(columns,0){
+        @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;}};
+            tblitem.setModel(dtm);
+    }
+    private void addToTable(){
+        OrderDetailDto orderDetailDto=new OrderDetailDto();
+        orderDetailDto.setItemId(txtitemid.getText());
+        orderDetailDto.setQty(Integer.parseInt(txtqty.getText()));
+        orderDetailDto.setDiscount(Integer.parseInt(txtdiscount.getText()));
+        
+        orderDeatailDtos.add(orderDetailDto);
+        
+        Object[] rowData={orderDetailDto.getItemId(),orderDetailDto.getQty(),orderDetailDto.getDiscount()};
+        
+        DefaultTableModel dtm=(DefaultTableModel)tblitem.getModel();
+        dtm.addRow(rowData);
+        clearItemData();
+    }
+    private void clearItemData(){
+        txtitemid.setText("");
+        txtqty.setText("");
+        lblitemdata.setText("");
+    }
+    private void placeOrder(){
+        try {
+            OrderDto orderDto=new OrderDto();
+            orderDto.setOrderId(txtorderid.getText());
+            orderDto.setCustId(txtcustid.getText());
+            
+            SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+            String date=sdf.format(new Date());
+            orderDto.setOrderDate(date);
+            
+            String resp = orderController.placeOrder(orderDto,orderDeatailDtos);
+            JOptionPane.showMessageDialog(this,resp);}
+        catch (Exception ex) {
+            Logger.getLogger(OrderView.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this,ex.getMessage());}
+        }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnadd;
     private javax.swing.JButton btncustid;
     private javax.swing.JButton btnitemid;
+    private javax.swing.JButton btnplaceorder;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblcustdata;
     private javax.swing.JLabel lblcustid;
+    private javax.swing.JLabel lbldiscount;
     private javax.swing.JLabel lblitemdata;
     private javax.swing.JLabel lblitemid;
     private javax.swing.JLabel lblorderid;
+    private javax.swing.JLabel lblqty;
     private javax.swing.JLabel lbltitle;
+    private javax.swing.JTable tblitem;
     private javax.swing.JTextField txtcustid;
+    private javax.swing.JTextField txtdiscount;
     private javax.swing.JTextField txtitemid;
     private javax.swing.JTextField txtorderid;
+    private javax.swing.JTextField txtqty;
     // End of variables declaration//GEN-END:variables
 }
